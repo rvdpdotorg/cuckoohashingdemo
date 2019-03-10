@@ -44,14 +44,14 @@ func simulate(hashBits int, cuckoo bool) map[int]float32 {
 		step = (1<<uint(hashBits))/500 + 1
 	}
 	smallSteps := false
-	fmt.Printf("Number of samples: ")
-	for samples := 2; samples <= hashSize; samples += step {
-		fmt.Printf("[%d] ", samples)
+	fmt.Printf("Number of elements: ")
+	for elements := 2; elements <= hashSize; elements += step {
+		fmt.Printf("[%d] ", elements)
 		collisions := 0
 		for n := 0; n < simulations; n++ {
 			h.clear()
 			collision := false
-			for i := 0; i < samples; i++ {
+			for i := 0; i < elements; i++ {
 				k := rand.Uint32()
 				if h.insert(Key(k), Value(k)) != nil {
 					collision = true
@@ -62,7 +62,7 @@ func simulate(hashBits int, cuckoo bool) map[int]float32 {
 			}
 		}
 		probability := float32(collisions) / simulations
-		data[samples] = probability
+		data[elements] = probability
 		if probability > 0.99 {
 			break
 		}
