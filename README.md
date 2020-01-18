@@ -3,7 +3,7 @@ started to learn Go and _cuckoo hashing_ seemed a nice exercise to implement
 in Go.
 
 I have written a
-[blog](https://www.rvdp.org/homepage/posts/2019/cuckoo-hashing/)
+[blog](https://www.rvdp.org/posts/2019/cuckoo-hashing/)
 about how cuckooo hashing works and why it is a useful datastructure.
 
 The program asks for the number of hash bits to use for the hash
